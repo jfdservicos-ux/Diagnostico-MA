@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Informações capturadas do casal e resultado do diagnóstico",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Nome do usuário" },
+        "email": { "type": "string", "format": "email", "description": "E-mail do usuário" },
+        "phone": { "type": "string", "description": "WhatsApp/Telefone do usuário" },
+        "income": { "type": "string", "description": "Faixa de renda" },
+        "debts": { "type": "boolean", "description": "Possui dívidas" },
+        "savings": { "type": "boolean", "description": "Poupam mensalmente" },
+        "alignmentScore": { "type": "number", "description": "Pontuação de alinhamento" },
+        "financialScore": { "type": "number", "description": "Pontuação financeira" },
+        "profile": { "type": "string", "description": "Perfil identificado" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Data de criação" }
+      },
+      "required": ["name", "email", "profile", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Coleção de leads capturados pelo diagnóstico"
+    }
+  }
+}
